@@ -132,6 +132,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       if (content) {
         // Send as SSE format
         res.write(`data: ${JSON.stringify({ content })}\n\n`);
+        // Flush immediately for Vercel streaming
+        if (typeof (res as any).flush === 'function') {
+          (res as any).flush();
+        }
       }
     }
 
