@@ -1,4 +1,4 @@
-import type { CombatState, CombatAction } from '../types';
+import type { CombatState } from '../types';
 
 /**
  * Parse combat marker from AI response
